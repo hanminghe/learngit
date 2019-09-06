@@ -9,3 +9,28 @@ create a file with notepad++ Encode with UTF-8
 
 create a new repository in github
 
+Q:\learning git>git remote add origin https://github.com/hanminghe/learngit.git
+
+Q:\learning git>git push -u origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/hanminghe/learngit.git'
+
+Q:\learning git>git add "1 create repository.txt"
+
+Q:\learning git>git commit -m "create repository local and remote"
+[master (root-commit) 084b805] create repository local and remote
+ 1 file changed, 11 insertions(+)
+ create mode 100644 1 create repository.txt
+
+Q:\learning git>git push -u origin master
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/hanminghe/learngit.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Q:\learning git>
