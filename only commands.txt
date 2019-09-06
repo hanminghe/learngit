@@ -9,3 +9,5 @@ git add "1 create repository.txt"
 git commit -m "create repository local and remote"
 
 git log
+
+git pull
