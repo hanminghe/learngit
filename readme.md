@@ -32,10 +32,10 @@ $(document).ready(function () {
 });
 ```
 
-    ```python
-    #!/usr/bin/env python3
-    print("Hello, World!");
-    ```
+```python
+#!/usr/bin/env python3
+print("Hello, World!");
+```
 
 链接也可以用变量来代替，文档末尾附带变量地址：
 这个链接用 1 作为网址变量 [Google][1]
