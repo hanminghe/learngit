@@ -225,4 +225,228 @@ Date:   Fri Sep 6 10:24:00 2019 +0800
 
     create repository local and remote
 
-Q:\learning git>
+Q:\learning git>git add "1 create repository.txt"
+
+Q:\learning git>git commit -m "line by line outputs"
+[master d4c0439] line by line outputs
+ 1 file changed, 199 insertions(+), 11 deletions(-)
+
+Q:\learning git>git push -u origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 2.03 KiB | 2.03 MiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/hanminghe/learngit.git
+   3fceecc..d4c0439  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Q:\learning git>git reset -hard head^
+More?
+More?
+
+Q:\learning git>git reset -hard HEAD^
+More?
+
+Q:\learning git>git reset --hard head^
+More?
+
+Q:\learning git>git reset --hard HEAD^
+More?
+
+Q:\learning git>git reset --hard HEAD^
+More?
+More?
+fatal: ambiguous argument 'HEAD
+': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+Q:\learning git>git log
+commit d4c0439ffd703eb6c0781c59bbc5db9ead89a27a (HEAD -> master, origin/master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:47:07 2019 +0800
+
+    line by line outputs
+
+commit 3fceeccc895f46747755d8e728156467284cb0d7
+Merge: 81162b7 c7d1367
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:42:38 2019 +0800
+
+    after local pull
+
+commit c7d136758563031b65dcfb39e2dea5eccfc95c50
+Author: hanminghe <53424022+hanminghe@users.noreply.github.com>
+Date:   Fri Sep 6 10:36:10 2019 +0800
+
+    intend to change remote file before push
+
+commit 81162b7ea9d4e9bb82fe3a99bbd919743ef30cd1
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:32:58 2019 +0800
+
+    create repository local and remote
+
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+
+Q:\learning git>git reset --hard "HEAD^"
+HEAD is now at 3fceecc after local pull
+
+Q:\learning git>git add "1 create repository.txt"
+
+Q:\learning git>git commit -m "after reset HEAD^"
+On branch master
+Your branch is behind 'origin/master' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+Q:\learning git>git reset --hard head~2
+HEAD is now at 084b805 create repository local and remote
+
+Q:\learning git>git loh
+git: 'loh' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+
+Q:\learning git>git log
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a (HEAD -> master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
+Q:\learning git>git reflog
+084b805 (HEAD -> master) HEAD@{0}: reset: moving to head~2
+3fceecc HEAD@{1}: reset: moving to HEAD^
+d4c0439 (origin/master) HEAD@{2}: commit: line by line outputs
+3fceecc HEAD@{3}: commit (merge): after local pull
+81162b7 HEAD@{4}: commit: create repository local and remote
+084b805 (HEAD -> master) HEAD@{5}: commit (initial): create repository local and remote
+
+Q:\learning git>git reset --hard d4c04
+HEAD is now at d4c0439 line by line outputs
+
+Q:\learning git>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+Q:\learning git>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        only commands.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Q:\learning git>git add "only commands.txt"
+
+Q:\learning git>git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   only commands.txt
+
+
+Q:\learning git>git commit -m "add only commands file"
+[master 5482a4c] add only commands file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 only commands.txt
+
+Q:\learning git>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+Q:\learning git>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   only commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Q:\learning git>git add "only commands.txt"
+
+Q:\learning git>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   only commands.txt
+
+
+Q:\learning git>git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   only commands.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   only commands.txt
+
+
+Q:\learning git>git diff
+diff --git a/only commands.txt b/only commands.txt
+index 5e6dc0c..b28b994 100644
+--- a/only commands.txt
++++ b/only commands.txt
+@@ -8,4 +8,6 @@ git add "1 create repository.txt"
+
+ git commit -m "create repository local and remote"
+
+-git log
+\ No newline at end of file
++git log
++
++git pull
+\ No newline at end of file
+
+Q:\learning git>git commit -m "two changes with one add"
+[master 2dc702f] two changes with one add
+ 1 file changed, 11 insertions(+)
+
+Q:\learning git>git status
+On branch master
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   only commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
