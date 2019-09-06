@@ -9,6 +9,7 @@ create a file with notepad++ Encode with UTF-8
 
 create a new repository in github
 
+<<<<<<< HEAD
 Q:\learning git>git remote add origin https://github.com/hanminghe/learngit.git
 
 Q:\learning git>git push -u origin master
@@ -34,3 +35,6 @@ To https://github.com/hanminghe/learngit.git
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 
 Q:\learning git>
+=======
+multi change
+>>>>>>> c7d136758563031b65dcfb39e2dea5eccfc95c50
