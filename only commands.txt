@@ -10,4 +10,67 @@ git commit -m "create repository local and remote"
 
 git log
 
+git reflog
+
 git pull
+
+git checkout -- "only commands.txt"
+
+git status
+
+git diff
+
+git reset --hard d4c04
+
+git reset --hard head~2
+
+git reset --hard "HEAD^"
+
+git rm test.txt
+
+git checkout -- test.txt
+
+git checkout -b dev  
+ 
+git branch dev
+git checkout dev
+
+git branch -a
+
+git push origin --delete dev
+
+git remote -v
+
+git push origin master
+git push origin dev
+
+git push origin <branch-name>
+
+git pull
+
+git push origin <branch-name>
+
+git branch --set-upstream-to=origin/dev dev
+
+git tag v1.0
+
+git tag
+
+git log --pretty=oneline --abbrev-commit
+
+git tag v0.9 f52c633
+
+git show v0.9
+
+git tag -a v0.1 -m "version 0.1 released" 1094adb
+
+git tag -d v0.1
+
+git push origin v1.0
+
+git push origin --tags
+
+git tag -d v0.9
+git push origin :refs/tags/v0.9
+
+git config --global color.ui true
