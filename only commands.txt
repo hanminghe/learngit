@@ -1,0 +1,11 @@
+git init
+
+git remote add origin https://github.com/hanminghe/learngit.git
+
+git push -u origin master
+
+git add "1 create repository.txt"
+
+git commit -m "create repository local and remote"
+
+git log
