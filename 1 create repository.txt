@@ -3,13 +3,6 @@ Q:\>cd "learning git"
 Q:\learning git>git init
 Initialized empty Git repository in Q:/learning git/.git/
 
-Q:\learning git>
-
-create a file with notepad++ Encode with UTF-8
-
-create a new repository in github
-
-<<<<<<< HEAD
 Q:\learning git>git remote add origin https://github.com/hanminghe/learngit.git
 
 Q:\learning git>git push -u origin master
@@ -34,7 +27,202 @@ To https://github.com/hanminghe/learngit.git
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 
+Q:\learning git>git add onlycommand.txt
+fatal: pathspec 'onlycommand.txt' did not match any files
+
+Q:\learning git>git log
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a (HEAD -> master, origin/master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
+Q:\learning git>git commit -m "after push to remote"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+        modified:   1 create repository.txt
+
+no changes added to commit
+
+Q:\learning git>git push -u origin master
+Everything up-to-date
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Q:\learning git>git commit -m "after push to remote"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+        modified:   1 create repository.txt
+
+no changes added to commit
+
+Q:\learning git>git add "1 create repository.txt"
+
+Q:\learning git>git commit -m "create repository local and remote"
+[master 81162b7] create repository local and remote
+ 1 file changed, 25 insertions(+)
+
+Q:\learning git>git log
+commit 81162b7ea9d4e9bb82fe3a99bbd919743ef30cd1 (HEAD -> master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:32:58 2019 +0800
+
+    create repository local and remote
+
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a (origin/master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
+Q:\learning git>git log
+commit 81162b7ea9d4e9bb82fe3a99bbd919743ef30cd1 (HEAD -> master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:32:58 2019 +0800
+
+    create repository local and remote
+
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a (origin/master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
+Q:\learning git>git push -u origin master
+To https://github.com/hanminghe/learngit.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'https://github.com/hanminghe/learngit.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Q:\learning git>git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/hanminghe/learngit
+   084b805..c7d1367  master     -> origin/master
+Auto-merging 1 create repository.txt
+CONFLICT (content): Merge conflict in 1 create repository.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Q:\learning git>git log
+commit 81162b7ea9d4e9bb82fe3a99bbd919743ef30cd1 (HEAD -> master)
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:32:58 2019 +0800
+
+    create repository local and remote
+
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
+Q:\learning git>git reflog
+81162b7 (HEAD -> master) HEAD@{0}: commit: create repository local and remote
+084b805 HEAD@{1}: commit (initial): create repository local and remote
+
+Q:\learning git>git push -u origin master
+To https://github.com/hanminghe/learngit.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/hanminghe/learngit.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+Q:\learning git>git diff
+diff --cc 1 create repository.txt
+index 1913b1e,95d79db..0000000
+--- a/1 create repository.txt
++++ b/1 create repository.txt
+@@@ -9,28 -9,4 +9,32 @@@ create a file with notepad++ Encode wit
+
+  create a new repository in github
+
+++<<<<<<< HEAD
+ +Q:\learning git>git remote add origin https://github.com/hanminghe/learngit.git
+ +
+ +Q:\learning git>git push -u origin master
+ +error: src refspec master does not match any
+ +error: failed to push some refs to 'https://github.com/hanminghe/learngit.git'
+ +
+ +Q:\learning git>git add "1 create repository.txt"
+ +
+ +Q:\learning git>git commit -m "create repository local and remote"
+ +[master (root-commit) 084b805] create repository local and remote
+ + 1 file changed, 11 insertions(+)
+ + create mode 100644 1 create repository.txt
+ +
+ +Q:\learning git>git push -u origin master
+ +Enumerating objects: 3, done.
+ +Counting objects: 100% (3/3), done.
+ +Delta compression using up to 12 threads
+ +Compressing objects: 100% (3/3), done.
+ +Writing objects: 100% (3/3), 369 bytes | 369.00 KiB/s, done.
+ +Total 3 (delta 0), reused 0 (delta 0)
+
+Q:\learning git>git commit -m "after local pull"
+error: Committing is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+U       1 create repository.txt
+
+Q:\learning git>git add "1 create repository.txt"
+
+Q:\learning git>git commit -m "after local pull"
+[master 3fceecc] after local pull
+
+Q:\learning git>git push -u origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 1.06 KiB | 542.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/hanminghe/learngit.git
+   c7d1367..3fceecc  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+Q:\learning git>git reflog
+3fceecc (HEAD -> master, origin/master) HEAD@{0}: commit (merge): after local pull
+81162b7 HEAD@{1}: commit: create repository local and remote
+084b805 HEAD@{2}: commit (initial): create repository local and remote
+
+Q:\learning git>git log
+commit 3fceeccc895f46747755d8e728156467284cb0d7 (HEAD -> master, origin/master)
+Merge: 81162b7 c7d1367
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:42:38 2019 +0800
+
+    after local pull
+
+commit c7d136758563031b65dcfb39e2dea5eccfc95c50
+Author: hanminghe <53424022+hanminghe@users.noreply.github.com>
+Date:   Fri Sep 6 10:36:10 2019 +0800
+
+    intend to change remote file before push
+
+commit 81162b7ea9d4e9bb82fe3a99bbd919743ef30cd1
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:32:58 2019 +0800
+
+    create repository local and remote
+
+commit 084b80595ff338b49b9cbe662fd659040f7f3f7a
+Author: hanminghe <hanminghe@shugia.com>
+Date:   Fri Sep 6 10:24:00 2019 +0800
+
+    create repository local and remote
+
 Q:\learning git>
-=======
-multi change
->>>>>>> c7d136758563031b65dcfb39e2dea5eccfc95c50
