@@ -1,0 +1,11 @@
+Q:\>cd "learning git"
+
+Q:\learning git>git init
+Initialized empty Git repository in Q:/learning git/.git/
+
+Q:\learning git>
+
+create a file with notepad++ Encode with UTF-8
+
+create a new repository in github
+
