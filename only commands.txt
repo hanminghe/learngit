@@ -167,3 +167,54 @@ cd;cd foo2
 git remote add web [某user]@[某ip]:/var/www/foo.git/
 
 git pull web maste
+
+使用以下命令查看origin使用的是https还是ssh
+git remote -v
+如果使用的是https替换为ssh方式即可
+git remote set-url origin git@github.com:name/repo
+重新进行git push/pull 不再需要输入账号密码
+
+ssh-keygen -t rsa -C "hanminghe@       "
+cat .ssh/id_rsa.pub
+git remote set-url origin git@host***.com:name***/repo***.git
+
+gpg --full-generate-key  
+waitgpg --armor --export ***** 导出公钥
+git config --global user.signingkey *****
+
+其他
+gpg --list-key
+gpg --list-secret-keys
+gpg -a --export ***** > pubkey.asc
+gpg -a --export-secret-keys ***** > privkey.asc
+
+
+
+
+$ touch hello.txt
+$ echo "hello world" > hello.txt
+$ cat hello.txt
+hello world
+$ gpg -ea -r ***** hello.txt
+$ ls
+hello.txt  hello.txt.asc
+
+cat hello.txt.asc
+-----BEGIN PGP MESSAGE-----
+hQEMA5wQ77tUIH1yAQgA1ru1OxQz8kInOe+RQxXPmJHq4Wa4B6oGptxdro9JFY3Q
+-----END PGP MESSAGE-----
+
+gpg -o new_hello.txt -d hello.txt.asc
+输入私钥
+cat new_hello.txt
+解密
+gpg --delete-secret-keys *****
+gpg --delete-key *****
+导入公钥或私钥：
+gpg --import  *****
+
+
+git config --global user.signingkey *****
+
+
+
