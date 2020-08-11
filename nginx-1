@@ -77,3 +77,12 @@ server {
     }
 
 }
+
+/////////////////
+uwsgi.ini looks like this
+[uwsgi]
+socket=127.0.0.1:8001
+chdir=/home/han/we/
+wsgi-file=demo.py
+callable=app
+
