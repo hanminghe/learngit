@@ -1,0 +1,79 @@
+server {
+
+    listen 9090;
+
+    location ~ \.php?.*$ {
+        root           /home/han/ospos/han;
+        fastcgi_pass   127.0.0.1:9000;
+        fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+        include        fastcgi_params;
+    }
+}
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+
+server {
+    listen       443; #ssl;    #如果硬性要求全部走https协议，这里去除ssl
+    ssl on;   #如果硬性要求全部走https协议，这里开启ssl on
+    ssl_certificate /etc/letsencrypt/live/*.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/*.com/privkey.pem;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+
+    server_name localhost;
+
+        location / {
+        try_files $uri @work;
+        client_max_body_size    50m;
+        }
+    location @work{
+        include uwsgi_params;
+        uwsgi_pass 127.0.0.1:8001;
+        uwsgi_param UWSGI_PYHOME /root/we/venv/work/index;
+        uwsgi_param UWSGI_CHDIR /root/we;
+        uwsgi_param UWSGI_SCRIPT demo:app;
+    }
+    location ~ ^.+\.(txt)$ {
+        root /home/han/we/;
+        expires 24h;
+    }
+location ~ .*\.(gif|jpg|bmp|png|ico|js|css|xls|pdf|xlsx|doc|docx|ppt|pptx|ico)$
+    {
+        root /home/han/we/app/;
+        #expires定义用户浏览器缓存的时间为7天，如果静态页面不常更新，可以设置更>长，这样可以节省带宽和缓解服务器的压力
+        expires      7d;
+        charset utf-8;
+    }
+
+}
+
+
+
+server {
+    listen  80;
+    server_name localhost;
+
+    location ^~ /.well-known/acme-challenge/ {
+
+        root /home/han/we/app/wellknown/acme-challenge/;
+    }
+
+    location /favicon.ico {
+        root /home/han/we/app/ ;
+    }
+
+    location ~ ^.+\.(txt)$ {
+        root /home/han/we/;
+        expires 24h;
+    }
+
+    location / {
+        return $request_uri;
+
+    }
+
+}
